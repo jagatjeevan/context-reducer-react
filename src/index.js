@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BlogProvider } from './Blogs/BlogContext';
+import { Provider as BlogProvider } from './Context/BlogContext';
+import { Provider as ThemeProvider } from './Context/ThemeContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BlogProvider>
-      <App />
-    </BlogProvider>
+    <ThemeProvider>
+      <BlogProvider>
+        <App />
+      </BlogProvider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
