@@ -1,4 +1,4 @@
-import { ContextData } from "./ContextData";
+import { createContext } from "./createContext";
 
 const reducer = (state, action) => {
     switch(action.type) {
@@ -15,4 +15,4 @@ const addBlogPost = (dispatch) => () => dispatch({type: "add-blogpost"});
 
 const deleteBlogPost = (dispatch) => (id) => dispatch({type: "delete-blogpost", payload: id});
 
-export const {Context, Provider} = ContextData(reducer, {addBlogPost, deleteBlogPost}, []);
+export const {Context, Provider} = createContext(reducer, {addBlogPost, deleteBlogPost}, []);
