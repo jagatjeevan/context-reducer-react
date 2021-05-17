@@ -1,4 +1,4 @@
-export function PassedWithContext(Component, ContextValue, namedContext) {
+export function withContext(Component, ContextValue, namedContext) {
   return function WrappedComponent(props) {
     return (
       <ContextValue.Consumer>
@@ -11,4 +11,4 @@ export function PassedWithContext(Component, ContextValue, namedContext) {
   };
 }
 
-export default PassedWithContext;
+export default withContext;

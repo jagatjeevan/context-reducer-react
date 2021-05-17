@@ -1,6 +1,6 @@
 import "./App.css";
 import { Context as BlogContext } from "./Context/BlogContext";
-import PassedWithContext from "./Context/contextHOC";
+import withContext from "./Context/contextHOC";
 import { Context as ThemeContext } from "./Context/ThemeContext";
 
 export function App(props) {
@@ -52,8 +52,8 @@ export function App(props) {
   );
 }
 
-export default PassedWithContext(
-  PassedWithContext(App, ThemeContext, "themeContext"),
+export default withContext(
+  withContext(App, ThemeContext, "themeContext"),
   BlogContext,
   "blogPostContext"
 );
