@@ -1,10 +1,9 @@
 import "./App.css";
-import { Context as BlogContext } from "./Context/BlogContext";
-import withContext from "./Context/contextHOC";
-import { Context as ThemeContext } from "./Context/ThemeContext";
+import { withBlog } from "./Context/BlogContext";
+import { withTheme } from "./Context/ThemeContext";
 
 export function App(props) {
-  const { themeContext, blogPostContext } = props.context;
+  const { themeContext, blogPostContext } = props;
 
   const currentThemeConfiguration =
     themeContext.state[themeContext.state.currentTheme];
@@ -52,8 +51,4 @@ export function App(props) {
   );
 }
 
-export default withContext(
-  withContext(App, ThemeContext, "themeContext"),
-  BlogContext,
-  "blogPostContext"
-);
+export default withBlog(withTheme(App));

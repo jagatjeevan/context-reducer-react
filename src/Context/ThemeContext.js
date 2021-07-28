@@ -31,3 +31,13 @@ export const { Context, Provider } = createContext(
   { changeThemeTo },
   themes
 );
+
+export function withTheme(Component) {
+  return function contextComponent(props) {
+    return (
+      <Context.Consumer>
+        {(context) => <Component {...props} themeContext={context} />}
+      </Context.Consumer>
+    );
+  };
+}
